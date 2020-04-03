@@ -67,7 +67,7 @@ Array.from(table.children)
 })
 .forEach((empl) => empl.classList.remove('filtered'));
 };
-
+      
 //keyup event for search
 search.addEventListener('keyup', () => {
     const term = search.value.trim().toLowerCase();
