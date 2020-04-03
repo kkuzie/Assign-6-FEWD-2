@@ -3,18 +3,9 @@
 const addName = document.querySelector('.name');
 const addTitle = document.querySelector('.title');
 const addExt = document.querySelector('.ext');
-
 const table = document.querySelector('tbody.list');
 
 const search = document.querySelector('.search input');
-
-let count  = document.querySelector(".table");
-let totalRowCount = 0;
-let rowCount = 0;
-
-
-// const formHeader = document.querySelector('.add-input');
-// const count = document.querySelector('.count');
 
 const generateTemplate = ((name, title, ext) => {
     const html = `
@@ -47,12 +38,12 @@ addName.addEventListener('submit', e => {
                     console.log(ext);
 
 // this needs to be fixed
-                    if(name.length || title.length || ext.length){
+                    // if(name.length || title.length || ext.length){
                     generateTemplate(name, title, ext);
                     addName.reset();
                     addTitle.reset();
                     addExt.reset();
-                    }
+                    // }
                 });
         });
 });
@@ -77,52 +68,22 @@ Array.from(table.children)
 .forEach((empl) => empl.classList.remove('filtered'));
 };
 
-//keyup event
+//keyup event for search
 search.addEventListener('keyup', () => {
     const term = search.value.trim().toLowerCase();
     filterEmpl(term);
 });
 
+//row counter:
+let count = document.querySelector('tbody');
+console.log(count);
 
-// formHeader.addEventListener('submit', e => {
-//     e.preventDefault();
-// }) 
-//     //need to add way to add # of employees in list
-//     let emplCount = 0;
-//     const addedEmpl = [formHeader.name.value, formHeader.title.value, formHeader.extension.value];
+let rows = count.getElementsByTagName("tr");
+console.log(rows);
 
-//     addedEmpl.forEach((input, index) => {
+let empl = Array.from(count.children).length;
+console.log(empl);
 
-//     });
-
-//row counter
-function CountRows() {
-    // let totalRowCount = 0;
-    // let rowCount = 0;
-    // let count  = document.querySelector(".table");
-    console.log(count);
-
-    let rows = count.getElementsByTagName("tr")
-        for (let i = 0; i < rows.length; i++) {
-            totalRowCount++;
-                if (rows[i].getElementsByTagName("td").length > 0 && rows[i].getElementsByTagName('th').length > 0) {
-                rowCount++;
-            }
-        console.log(rows);
-    }
-
-    // let message = rowCount;
-    // console.log(message);
-
-//show # employees
-    // count.querySelector('span').textContent = `${message}`;
-}
-CountRows();
-let message = rowCount;
-console.log(message);
-//need to figure out how to increase row count when employee added
-//and decrease row count when employee deleted
-
-
-count.querySelector('span').textContent = `${message}`;
+let numEmpl = document.querySelector('.table-rows');
+numEmpl.querySelector('span').textContent = `${empl}`;
 

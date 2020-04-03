@@ -1,7 +1,6 @@
 body {
     background: #2f1061;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    
 }
 button {
     display: block;
@@ -10,5 +9,21 @@ button {
     margin: 20px auto;
     border: 0;
     padding: 6px 10px;
-    border-radius: 3px;;
+    border-radius: 3px;
+}
+a {
+    text-decoration: none;
+}
+/* p{
+    width: 300px;
+    font-size: 20px;
+    color: #fff;
+    margin: 20px auto;
+} */
+input {
+    display: block;
+    width: 400px;
+    margin: 20px auto;
+    font-size: 30px;
+    border-radius: 3px;
 }
