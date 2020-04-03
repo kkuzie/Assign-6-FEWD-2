@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 06 - Employee Management Application</title>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="empl-mgt-styles.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="add-input text-center text-light my-4">
+            <h1 class="mb-4">Employee Management App</h1>
+
+            <!-- <form class="add-input text-light"> -->
+
+                <form class="search">
+                    <input type="text" class="form-control mb-2" name="search" placeholder="search employees">
+                    <i class="fas fa-search"></i>
+                </form>
+
+                <h3>Add an employee</h3>
+                <form class="name">
+                    <input type="text" class="form-control mb-2" name="name" placeholder="employee name">
+                </form>
+                <form class="title">
+                    <input type="text" class="form-control mb-2" name="title" placeholder="title">
+                </form>
+                <form class="ext">
+                    <input type="text" class="form-control mb-4" name="extension" placeholder="extension">
+                </form>
+
+            <!-- </form> -->
+
+            <button class="addBtn">Add</button>
+        </header>
+    </div>
+
+    <div class="table mx-auto text-light">
+        <table class="table row-count table-striped table-dark">
+            <div class="table count mx-auto text-light">
+        <h3>Showing <span class="mb-4">0</span> Employees</h3>
+    </div>
+    <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Extension</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody class="list">
+                <tr>
+                    <th scope="row">Kabeer</th>
+                    <td>Daddy Dog</td>
+                    <td>0613</td>
+                    <td>
+                        <i class="far fa-trash-alt delete"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Bandit</th>
+                    <td>Daddy's Boy</td>
+                    <td>1115</td>
+                    <td>
+                        <i class="far fa-trash-alt delete"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Dobie</th>
+                    <td>Queen Bee</td>
+                    <td>1511</td>
+                    <td>
+                        <i class="far fa-trash-alt delete"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Bean</th>
+                    <td>Baby Bee</td>
+                    <td>2014</td>
+                    <td>
+                        <i class="far fa-trash-alt delete"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Nugget</th>
+                    <td>New Guy</td>
+                    <td>1128</td>
+                    <td>
+                        <i class="far fa-trash-alt delete"></i>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/employee-management.js"></script>
+</body>
+
+</html>

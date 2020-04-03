@@ -1,0 +1,39 @@
+body {
+    background: #352f5b;
+}
+.container {
+    max-width: 400px;
+}
+input[type=text],
+input[type=text]:focus {
+    color: #fff;
+    border: none;
+    background: rgba(0,0,0,.2);
+    max-width: 400px;
+}
+.search i {
+    position: absolute;
+    margin-top: -35px;
+    margin-left: 150px;
+    opacity: 50%;
+}
+
+/* .todos li {
+    background: #423a6f;
+} */
+.delete {
+    cursor: pointer;
+}
+.filtered {
+    display: none !important;
+}
+.table {
+    max-width: 960px;
+    margin: auto;
+}
+.table-dark {
+    background-color: rgba(0,0,0,.2);
+  }
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #423a6f;
+}
