@@ -101,3 +101,4 @@ start.addEventListener ('click', e => {
 
 //STEP 10
 // Add a drop down list to a web page. Populate the drop down list with 4 items. Add a button next to the drop down list and set the text to “Select”. When the user clicks the button, the item selected in the drop down list should appear within an alert box.
+     
