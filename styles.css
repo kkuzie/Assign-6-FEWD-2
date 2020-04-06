@@ -20,7 +20,7 @@ a {
     color: #fff;
     margin: 20px auto;
 } */
-input {
+input, select {
     display: block;
     width: 400px;
     margin: 20px auto;
