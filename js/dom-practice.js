@@ -73,11 +73,11 @@ const userInput = document.getElementById('text');
 const btn7 = document.getElementById('step7');
 
 btn7.addEventListener('click', e => {
-    // this.disabled = "true";
+    btn7.disabled = true;
     alert(userInput.value);    
 });
 
-userInput.reset;
+// userInput.reset;
 //STEP 8
 // Create a new page called newpage.html. You will now have 2 web pages including practice.html and newpage.html. Add a button to practice.html. When the button is clicked, newpage.html should appear as a popup window at 300 pixels wide by 300 pixels high. As soon as newpage.html loads however, resize the window to 500 pixels wide by 300 pixels high. You will need to handle the load event on newpage.html and use a BOM method on newpage.html to accomplish this task.
 
