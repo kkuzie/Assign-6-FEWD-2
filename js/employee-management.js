@@ -26,14 +26,13 @@ const generateTemplate = ((name, title, ext) => {
 // const addEmpl = document.forms['addInput'];
 //addEmpl is same as addInput var, line 3
 
-addInput.addEventListener('submit', e => {
+addInput.addEventListener('click', e => {
     e.preventDefault();
     const addName = addInput.querySelector('input[name="name"]').value.trim();
     console.log(addName);
         if(addName == ''){//when here keeps adding to list but turns red upon enter or add -and cursor stays in place with enter
             addInput.name.style.border = '3px solid crimson';
                         //stays red when no input but still adds to list empty string
-
         }
 
     const addTitle = addInput.querySelector('input[name="title"]').value.trim();
@@ -148,5 +147,15 @@ let rows = count.getElementsByTagName("tr");
 console.log(rows);//grab rows collection
 let numEmpl = document.querySelector('.table-rows');//so can grab span
 
-    numEmpl.querySelector("span").innerHTML = `${rows.length}`;
+let filtered = document.getElementsByClassName('filtered');
+let filteredLength = Number(rows.length - filtered.length);
+// if pic >0{
+//     enter html rows.length
+// }
+    if(filtered.length > 0){
+            numEmpl.querySelector("span").innerHTML = `${filteredLength}`;
+    }
+    else {
+        numEmpl.querySelector("span").innerHTML = `${rows.length}`;
   }
+}
