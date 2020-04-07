@@ -1,10 +1,7 @@
 /*eslint-env browser*/
 
-const addInput = document.forms.addInput;//this grabs the forms tag just like getElementsByClassName, etc
-
-// const addName = document.querySelector('.name');
-// const addTitle = document.querySelector('.title');
-// const addExt = document.querySelector('.ext');
+const addInput = document.forms.addInput;
+//this grabs the forms tag just like getElementsByClassName, etc
 const table = document.querySelector('tbody.list');
 
 const search = document.querySelector('.search input');
@@ -26,66 +23,67 @@ const generateTemplate = ((name, title, ext) => {
 });
 
 // //adding employee info
-const addEmpl = document.forms['addInput'];
+// const addEmpl = document.forms['addInput'];
+//addEmpl is same as addInput var, line 3
 
-addEmpl.addEventListener('submit', e => {
+addInput.addEventListener('submit', e => {
     e.preventDefault();
-    const addName = addEmpl.querySelector('input[name="name"]').value.trim();
-    // const name = addName.name.value.trim();
+    const addName = addInput.querySelector('input[name="name"]').value.trim();
     console.log(addName);
+        if(addName == ''){//when here keeps adding to list but turns red upon enter or add -and cursor stays in place with enter
+            addInput.name.style.border = '3px solid crimson';
+                        //stays red when no input but still adds to list empty string
 
-// addEmpl.addEventListener('submit', e => {
-//     e.preventDefault();
-    const addTitle = addEmpl.querySelector('input[name="title"]').value.trim();
-    // const name = addName.name.value.trim();
+        }
+
+    const addTitle = addInput.querySelector('input[name="title"]').value.trim();
     console.log(addTitle);
+        if(addTitle == ''){
+            addInput.title.style.border = '3px solid crimson';//turns red at same time as enter or add from employee name
+            //stays red when no input but still adds to list empty string
+        }
 
-// addEmpl.addEventListener('submit', e => {
-//     e.preventDefault();
-    const addExt = addEmpl.querySelector('input[name="extension"]').value.trim();
-    // const name = addName.name.value.trim();
+    const addExt = addInput.querySelector('input[name="extension"]').value.trim();
     console.log(addExt);
+        if(addExt == ''){
+            addInput.extension.style.border = '3px solid crimson';
+        }
+
+        //all three text boxes dont turn red if push tab to get to next box, but then all turn red upon submit (enter or add) and still add empty line
+
     generateTemplate(addName, addTitle, addExt);
-    addEmpl.reset();
-    myFunction();
-// });
-// });
+    // addInput.onsubmit = function() {
+    //     if(addName == ''){
+    //         addInput.name.style.border = '3px solid crimson'; 
+    //         return false;
+    //     // } else if (addName != ''){
+    //     //     addInput.name.style.border = '3px solid limegreen';
+    //     //     return false;
+    //     } else {
+    //         // addInput.name.style.border = 'none';
+    //         return true;
+    //     }
+    // };
+    
+    addInput.reset();
+    counterFunc();
 });
-//         addTitle.addEventListener('submit', e => {
-//             e.preventDefault();
-//             const title = addTitle.title.value.trim();
-//             console.log(title);
 
-//                 addExt.addEventListener('submit', e => {
-//                     e.preventDefault();
-//                     const ext = addExt.extension.value.trim();
-//                     console.log(ext);
-
-// // this needs to be fixed
-//                     // if(name.length || title.length || ext.length){
-                    // generateTemplate(name, title, ext);
-//                     addName.reset();
-//                     addTitle.reset();
-//                     addExt.reset();
-//                     myFunction();
-//                     // }
-//                 });
-//         });
-// });
-
-//adding employee - try 2 (above works but not quite right)
+// adding employee focus
 addInput.name.onfocus = function(){
     addInput.name.style.border = '3px solid limegreen'; 
 };
 addInput.name.onblur = function(){
     addInput.name.style.border = 'none';
 }
+
 addInput.title.onfocus = function(){
     addInput.title.style.border = '3px solid limegreen'; 
 };
 addInput.title.onblur = function(){
     addInput.title.style.border = 'none';
 }
+
 addInput.extension.onfocus = function(){
     addInput.extension.style.border = '3px solid limegreen'; 
 };
@@ -94,40 +92,11 @@ addInput.extension.onblur = function(){
 }
 
 
-//onsubmit event
-addEmpl.onsubmit = function() {
-    if(addEmpl.name.value == ''){
-        addEmpl.name.style.border = '3px solid crimson';
-        return false;
-    } else {
-        return true;
-    }
-    
-};
-addEmpl.onsubmit = function() {
-    if(addEmpl.title.value == ''){
-        addEmpl.title.style.border = '3px solid crimson';
-        return false;
-    } else {
-        return true;
-    }
-};
-addEmpl.onsubmit = function() {
-    if(addEmpl.extension.value == ''){
-        addEmpl.extension.style.border = '3px solid crimson';
-        return false;
-    } else {
-        return true;
-    }
-};
-// generateTemplate(name, title, ext);
-
-
 //removing row when employee deleted
 table.addEventListener('click', e => {
     if(e.target.classList.contains('delete')){
         e.target.parentElement.parentElement.remove();
-        myFunction();
+        counterFunc();
     }
 });
 
@@ -144,7 +113,7 @@ Array.from(table.children)
     return empl.textContent.toLowerCase().includes(term);
 })
 .forEach((empl) => empl.classList.remove('filtered'));
-  myFunction();
+  counterFunc();
 };
      
 //keyup event for search
@@ -171,7 +140,7 @@ console.log(numEmpl);
 
 //try try again - row counter:
 //taken from: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_nodelist_length_p
-function myFunction() {
+function counterFunc() {
     let count = document.querySelector('tbody');//grab table
 console.log(count);
 
@@ -179,61 +148,5 @@ let rows = count.getElementsByTagName("tr");
 console.log(rows);//grab rows collection
 let numEmpl = document.querySelector('.table-rows');//so can grab span
 
-
     numEmpl.querySelector("span").innerHTML = `${rows.length}`;
   }
-
-
-
-
-//vlad info
-// function countEmployees () {
-//     let length = rows.length;
-
-    // numEmpl.querySelector('span').textContent = `${rows.length}`;//shows number of row in browser
-
-    // $('h2 span').text(length)
-    // console.log('count was called')
-    // console.log(length)
-// }
-// countEmployees();
-// console.log(length);
-
-//another try:
-// let i = 0;
-// let sumRows = 0;
-// while (i < empl){
-//     sumRows = rows.length;
-//     i++;
-// }
-// console.log(sumRows);
-// numEmpl.querySelector('span').textContent = `${sumRows}`;//shows number of row in browser
-
-//almost there
-// let i = 0;
-// let sumRows = 0;
-// while (i < empl){
-//     sumRows += empl;
-//     i++;
-//     numEmpl.querySelector('span').textContent = `${sumRows}`;//shows number of row in browser
-// }
-// console.log(sumRows);
-// console.log(rows);
-// console.log(i);
-
-// var table = document.getElementById("priceTable");
-
-// var i = 1;
-// var sum = 0;
-// while (i < table.rows.length) {
-//     sum += parseFloat(table.rows[i].cells[2].innerHTML)
-//     i++;
-// }
-
-// var row = table.insertRow(i);
-// var cell1 = row.insertCell(0);
-// var cell2 = row.insertCell(1);
-// var cell3 = row.insertCell(2);
-
-// cell2.innerHTML = "Total Price";
-// cell3.innerHTML = sum;
