@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-// This is a test.
+
 const addInput = document.forms.addInput;
 //this grabs the forms tag just like getElementsByClassName, etc
 const table = document.querySelector('tbody.list');
